@@ -148,8 +148,8 @@ if __name__ == "__main__":
         "attempts": 0,
         "history": [],
     }
-    with open("graph.png", "wb") as fw: 
-        fw.write(graph.get_graph().draw_mermaid_png())
+    # with open("graph.png", "wb") as fw: 
+    #     fw.write(graph.get_graph().draw_mermaid_png())
     result = graph.invoke(initial_state)
     print("==== 最终结果 ====")
     print(f"标题: {result['title']}")

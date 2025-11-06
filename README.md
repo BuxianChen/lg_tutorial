@@ -2,41 +2,41 @@
 
 大纲:
 
-第一部分(langgraph基础):
+Part 0: LangChain
+
+Part 1: langgraph基础
 
 - ✅ State
 - ✅ Node
-  - function
-  - Langchain Runnable
 - ✅ Edge, Conditional Edge, Graph
 - ✅ 对比 Dify 拖拉拽模式
 
-第二部分(langgraph特性)
+Part 2: langgraph特性
 
 - ✅ langsmith 集成
-- ✅ langgraph cli, langgraph studio, langgraph sdk: 不太熟悉
+- ✅ langgraph cli, langgraph studio, langgraph sdk
 - ✅ langgraph 流式输出
-- ✅ checkpointer (检查点/存储), time travel (时光机): langgraph 似乎设计了 session 和 用户维度的 memory, 后者没太看
-- ❌ subgraph: 新增加的模块, 后面再弄
+- ✅ checkpointer (检查点/存储), time travel (时光机)
+- ❌ subgraph
 
-第三部分(用langgraph搭建的一些agent例子)
+Part 3: 用langgraph搭建的一些agent例子
 
 - ❌ 实际例子: 完成大体 graph 流程, 差具体实现
 - ✅ Tool Use Agent
-- ❌ Python Interpreter: 还差简化的赛题描述, 数据 API 搭建, Python Interpreter 实现(照着原来写的改一改, 以前写的继承了 langchain-experiment 但是它现在又改动了代码, 另外比赛的时候用的是 react, 当时是 GLM-4 tool call 有bug, 这次改成 tool use), 计划可能不以赛题为例实现了, 沿用上面的 Tool Use Agent 做例子
-- ❌ plan and execute: 还差 plan and execute, llm-compiler (可能考虑暂时放弃讲解, 只实现代码), 计划可能不以赛题为例实现了, 沿用上面的 Tool Use Agent 做例子
+- ❌ Python Interpreter
+- ❌ plan and execute
 
-远期计划
+TODO:
 
 - `checkpointer` vs `store`
-- 用 langgraph + FastAPI 部署为真正的服务的例子
-- Langgraph 并行陷阱
+- langgraph + FastAPI 部署
+- langgraph 并行陷阱
 - `create_agent` + deepagents
-- Inject State
-- Langgraph Functional API
-- Langgraph Pregel
+- langgraph Functional API
+- langgraph Pregel
 - Human-in-the-loop
 - Middleware
+- Inject State
 
 # 开发模式对比
 
@@ -50,7 +50,6 @@
 - 函数节点: 拖拉拽模式的实现往往基于 python 沙盒, 即通过把代码发送给沙盒服务器, 在沙盒服务器上执行完毕后再将结果返回工作流流程, 这会产生网络请求, 导致运行速度拖慢. 并且沙盒可使用的 python 三方包是受限的, 不能随意控制.
 
 坏处:
-- 快速调试时一般需要改代码, 在需要地方添加结束的边
 - add_node, add_edge 写起来确实有些繁琐, 虽然可以输出 graph 的流程图进行观察
 - 节点的入参一般都要是全局状态 state, 然后在函数内部取相应的字段, 不容易看清输入变量(应该可以弄个装饰器来统一解决)
 - langchain 生态本身做了多轮重构, 导致 import 的方式总是发生变化, 并且拆分的包比较多: langchain-core, langchain, langgraph, ... 各个包的兼容性也很难确保.

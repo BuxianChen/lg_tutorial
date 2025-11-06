@@ -253,8 +253,8 @@ graph = builder.compile()
 
 # 测试运行
 if __name__ == "__main__":
-    with open("graph.png", "wb") as fw: 
-        fw.write(graph.get_graph().draw_mermaid_png())
+    # with open("graph.png", "wb") as fw: 
+    #     fw.write(graph.get_graph().draw_mermaid_png())
 
     # # 示例 1: 使用默认值
     # result = graph.invoke({})
@@ -269,21 +269,21 @@ if __name__ == "__main__":
     # print(f"\n理论分析:\n{result['theory_analyse']}")
     # print(f"\n过程解释:\n{result['process_interpreter']}")
     
-    # # 示例 2: 自定义参数
-    # print("\n" + "=" * 50)
-    # print("示例 2: 自定义参数")
-    # print("=" * 50)
-    # result2 = graph.invoke({
-    #     "a": 2,
-    #     "b": 3,
-    #     "upper_bound": 20,
-    #     "min_increment": 2,
-    #     "max_increment": 5
-    # })
-    # print(f"最终 a: {result2['a']}")
-    # print(f"最终 b: {result2['b']}")
-    # print(f"a + b: {result2['a'] + result2['b']}")
-    # print(f"a 变化过程: {result2['a_list']}")
-    # print(f"b 变化过程: {result2['b_list']}")
-    # print(f"\n理论分析:\n{result2['theory_analyse']}")
-    # print(f"\n过程解释:\n{result2['process_interpreter']}")
+    # 示例 2: 自定义参数
+    print("\n" + "=" * 50)
+    print("示例 2: 自定义参数")
+    print("=" * 50)
+    result2 = graph.invoke({
+        "a": 2,
+        "b": 3,
+        "upper_bound": 20,
+        "min_increment": 2,
+        "max_increment": 5
+    })
+    print(f"最终 a: {result2['a']}")
+    print(f"最终 b: {result2['b']}")
+    print(f"a + b: {result2['a'] + result2['b']}")
+    print(f"a 变化过程: {result2['a_list']}")
+    print(f"b 变化过程: {result2['b_list']}")
+    print(f"\n理论分析:\n{result2['theory_analyse']}")
+    print(f"\n过程解释:\n{result2['process_interpreter']}")

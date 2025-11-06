@@ -240,8 +240,8 @@ def pretty_print_message(msg):
 
 
 if __name__ == "__main__":
-    with open("graph.png", "wb") as fw: 
-        fw.write(graph.get_graph().draw_mermaid_png())
+    # with open("graph.png", "wb") as fw: 
+    #     fw.write(graph.get_graph().draw_mermaid_png())
 
     # --------------------------
     # 🚀 运行示例
